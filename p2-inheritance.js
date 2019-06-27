@@ -8,11 +8,11 @@ class Person {
     }
     // moved here b/c it was identical
     bio() {
-        return `My name is ${this.name} and here's my quirky fact: ${this.quirkyFact}`;
+        return `My name is ${this.name} and here's my quirky fact: I ${this.quirkyFact}`;
     }
 
     currentWeek(week) {
-        return `Current week is ${week}`;
+        return `Currently, I'm in week ${week}`;
     }
 }
 class Student extends Person {
@@ -23,9 +23,8 @@ class Student extends Person {
 }
 class Mentor extends Person {
     // specific to mentors
-    constructor(name) {
-        super(name);
-    }
+
+    // add static method
     static bio () {
         return super.bio();
     }
@@ -38,12 +37,9 @@ class Mentor extends Person {
     }
 }
 
-const michelle = new Person('Michelle','love trees');
-
-// const michelle = new Student();;
-// michelle.cohort('may25');
-
+const michelle = new Person('Michelle','love trees', 'michelle@hotmail.com');
 console.log(michelle, michelle.bio(), michelle.currentWeek(5));
 
-const techlead = new Mentor('Patrick', 'I love water')
-console.log(techlead,techlead.bio('ex google lead'))
+const techlead = new Mentor('Patrick', 'love drinking water, tea or coffee in my glass cup', 'patrick@google.com')
+techlead.goOnShift(true)
+console.log(techlead.bio('ex google lead'), techlead)
