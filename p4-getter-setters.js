@@ -7,16 +7,15 @@ class Pizza {           // has two methods-base and add Topping and 1 property -
     addTopping(topping) {
         this.toppings.push(topping)
     }
-    // setSize now includes data validation
-    setSize(size) {
+    set size(size) {
         if (size === 's' || size === 'm' || size === 'l') {
-            this.size = size;
+            this._size = size;
         }
-        // else we could throw an error, return false, etc.
-        // We choose here to ignore all other values!
     }
-    getSize() {
-        return this.size;
+    get price() {
+        const basePrice = 10;
+        const toppingPrice = 2;
+        return basePrice + this.toppings.length * toppingPrice;
     }
 }
 
