@@ -1,9 +1,10 @@
 // This class represents all that is common between Student and Mentor
 class Person {
     // moved here b/c it was identical
-    constructor(name, quirkyFact) {
+    constructor(name, quirkyFact, email) {
         this.name = name;
         this.quirkyFact = quirkyFact;
+        this.email = email;
     }
     // moved here b/c it was identical
     bio() {
@@ -22,6 +23,12 @@ class Student extends Person {
 }
 class Mentor extends Person {
     // specific to mentors
+    constructor(name) {
+        super(name);
+    }
+    static bio () {
+        return super.bio();
+    }
     goOnShift() {
         this.onShift = true;
     }
@@ -31,10 +38,12 @@ class Mentor extends Person {
     }
 }
 
-const michelle = new Person('michelle','love trees');
+const michelle = new Person('Michelle','love trees');
 
 // const michelle = new Student();;
 // michelle.cohort('may25');
 
 console.log(michelle, michelle.bio(), michelle.currentWeek(5));
 
+const techlead = new Mentor('Patrick', 'I love water')
+console.log(techlead,techlead.bio('ex google lead'))
